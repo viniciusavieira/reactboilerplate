@@ -1,0 +1,36 @@
+.modal-position-max{
+	max-width: 980px;
+	float: none;
+	margin: 0 auto;
+	height: 100%;
+}
+.modal-position-min{
+	max-width: 580px;
+	float: none;
+	margin: 0 auto;
+	height: 100%;
+}
+.modal-internal{
+	background-color: #ffffff;
+	padding: 0px;
+	width: 578px;
+	height: 100%;
+	margin: 0 auto;
+	overflow-y: auto;
+
+	.cardview {
+		background: inherit;
+		-webkit-box-shadow: inherit;
+		-moz-box-shadow: inherit;
+		box-shadow: inherit;
+	}
+}
+.modal-secondary{
+	float: left;
+	background-color: #ffffff;
+	margin-left: 15px;
+	padding: 30px;
+	width: 384px;
+	height: 100%;
+	overflow-y: auto;
+}

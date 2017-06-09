@@ -1,0 +1,530 @@
+
+/* Change the white to any color ;) */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+html{
+	font-family: "Montserrat";
+}
+
+body {
+	margin:0;
+	background:#ebebeb;
+	min-width: 976px;
+	font-family: "Montserrat" !important;
+}
+
+label {
+	font-weight: normal;
+}
+@mixin transition($args...) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+@mixin transform($args...) {
+	-moz-transform: $args;
+	-o-transform: $args;
+	-ms-transform: $args;
+	-webkit-transform: $args;
+	transform: $args;
+}
+
+@mixin border-box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($style-name, $filepath) {
+	 @font-face {
+				font-family: "#{$style-name}";
+				src: url($filepath + ".eot");
+				src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+		}
+}
+
+a, a:hover, a:visited {
+	color:#000;
+}
+dt {
+	font-weight: normal !important;
+}
+.mt40 {
+	margin-top: 40px;
+}
+
+ .button-edit{
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 700;
+	display: inline-block;
+	color: #1ba3d9;
+	display: flex;
+	.icon{
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		background: transparent url("assets/icon_edit_user_hover.svg") 0px 0px no-repeat;
+		background-size: 16px 16px;
+	}
+	span{
+		position: relative;
+		display: inline-block;
+		top: 2px;
+		left: 3px;
+	}
+}
+h1{
+	font-size: 17px;
+	font-family: "Montserrat";
+	text-align: center;
+	color: #000000;
+	margin: 0 0;
+	font-weight: normal;
+}
+h2{
+	font-size: 12px;
+	font-family: "Montserrat";
+	text-align: left;
+	color: #000000;
+	margin: 0 0;
+	font-weight: normal;
+}
+h3{
+	font-size: 12px;
+	font-family: "Montserrat";
+	text-align: center;
+	color: #bbbbbb;
+	margin: 0 0;
+	font-weight: normal;
+}
+.children{
+	max-width: 976px;
+	float: none;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.button{
+	cursor: pointer;
+	display: inline-block;
+	line-height: 26px;
+	width: auto;
+	padding: 0 10px;
+	height: 24px;
+	color: #ffffff;
+	background-color: #1ba0d9;
+	-webkit-box-shadow: 2px 2px 0px 0px rgba(3,131,185,1);
+	-moz-box-shadow: 2px 2px 0px 0px rgba(3,131,185,1);
+	box-shadow: 2px 2px 0px 0px rgba(3,131,185,1);
+	border-radius: 3px;
+	border: none;
+	font-family: "Montserrat";
+	font-weight: 700;
+	font-size: 10px;
+	text-align:center;
+	text-transform: uppercase;
+	@include transition(all 0.3s);
+}
+.button:hover{
+	background-color: #0e87ba;
+	color:#fff;
+}
+.button-red{
+	background-color: #d91b1b;
+	-webkit-box-shadow: 2px 2px 0px 0px rgba(174,8,11,1);
+	-moz-box-shadow: 2px 2px 0px 0px rgba(174,8,11,1);
+	box-shadow: 2px 2px 0px 0px rgba(174,8,11,1);
+}
+.button-red:hover{
+	background-color: #a8070a;
+}
+*:focus {
+    outline: none;
+}
+a:hover{
+	text-decoration: none;
+}
+
+.button-no-bg{
+	cursor: pointer;
+	display: inline-block;
+	line-height: 26px;
+	width: auto;
+	padding: 0 10px;
+	height: 24px;
+	color: #1ba0d9;
+	font-family: "Montserrat";
+	font-weight: 700;
+	font-size: 10px;
+	text-align:center;
+	text-transform: uppercase;
+	@include transition(all 0.3s);
+
+	&.red {
+		color:#d91b25
+	}
+}
+
+.icon-close {
+	display: inline-block;
+	background: transparent url(assets/close_red.svg) center center no-repeat;
+	width: 8px;
+	height: 8px;
+	background-size: 8px 8px;
+	-webkit-transform: rotate(45deg); /* Safari and Chrome */
+    -moz-transform: rotate(45deg);   /* Firefox */
+    -ms-transform: rotate(45deg);   /* IE 9 */
+    -o-transform: rotate(45deg);   /* Opera */
+    transform: rotate(45deg);
+}
+
+.icon-add {
+	display: inline-block;
+	background: transparent url(assets/add_blue.svg) center center no-repeat;
+	width: 8px;
+	height: 8px;
+	background-size: 8px 8px;
+}
+
+.tal{
+	text-align:left;
+}
+
+.pad0{
+	padding: 0px;
+}
+
+.dialog-body-text{
+	font-size: 12px;
+	font-family: "Montserrat";
+	text-align: center;
+	color: #000000;
+	margin: 0 0;
+}
+
+.row-line{
+	width: 100%;
+}
+.mt20{
+	margin-top: 20px;
+}
+.pointer{
+	cursor:pointer;
+}
+input[type="radio"]:focus + label::before  {
+	cursor: pointer;
+	border-color: #1ba2d9;
+	box-shadow: none;
+	outline: 0 none !important;
+}
+.radio {
+	cursor: pointer;
+	padding-left: 20px;
+}
+.radio label {
+	cursor: pointer;
+	font-family: "Montserrat",sans-serif;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	padding-left: 5px;
+	font-size:12px;
+	font-weight: normal;
+}
+.radio label::before {
+	cursor: pointer;
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	left: 0;
+	margin-left: -20px;
+	margin-top: 2px;
+	border: 2px solid #000000;
+	border-radius: 50%;
+	background-color: #fff;
+	-webkit-transition: border 0.15s ease-in-out;
+	-o-transition: border 0.15s ease-in-out;
+	transition: border 0.15s ease-in-out;
+}
+.radio label::after {
+	cursor: pointer;
+	display: inline-block;
+	position: absolute;
+	content: " ";
+	width: 8px;
+	height: 8px;
+	left: 3px;
+	top: 5px;
+	margin-left: -20px;
+	border-radius: 50%;
+	background-color: #555555;
+	-webkit-transform: scale(0, 0);
+	-ms-transform: scale(0, 0);
+	-o-transform: scale(0, 0);
+	transform: scale(0, 0);
+	-webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	-moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	-o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+.radio-primary input[type=radio]:checked+label:before {
+	cursor: pointer;
+    border-color: #1ba2d9;
+}
+.radio-primary input[type=radio]:checked+label:after {
+	cursor: pointer;
+    background-color: #1ba2d9;
+}
+.radio input[type="radio"] {
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+.radio input[type="radio"]:focus + label::before {
+	cursor: pointer;
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+.radio input[type="radio"]:checked + label::after {
+	cursor: pointer;
+	-webkit-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	-o-transform: scale(1, 1);
+	transform: scale(1, 1);
+}
+.radio input[type="radio"]:disabled + label {
+	cursor: pointer;
+	opacity: 0.65;
+}
+.radio input[type="radio"]:disabled + label::before {
+	cursor: pointer;
+	cursor: not-allowed;
+}
+.radio.radio-inline {
+	cursor: pointer;
+	margin-top: 0;
+}
+
+.radio-primary input[type="radio"] + label::after {
+	cursor: pointer;
+	background-color: #1ba2d9;
+}
+.radio-primary input[type="radio"]:checked + label::before {
+	cursor: pointer;
+	border-color: #1ba2d9;
+  margin-top: 2px;
+}
+.radio-primary input[type="radio"]:checked + label::after {
+	cursor: pointer;
+	background-color: #1ba2d9;
+}
+
+.display-inline{
+	display: inline-block;
+}
+.mb20{
+	margin-bottom: 20px;
+}
+
+.cardview {
+	width: 100%;
+	background-color: #ffffff;
+    border-radius:3px;
+    -webkit-box-shadow: 2.5px 2.5px 2.5px 0px rgba(0,0,0,0.05);
+    -moz-box-shadow: 2.5px 2.5px 2.5px 0px rgba(0,0,0,0.05);
+    box-shadow: 2.5px 2.5px 2.5px 0px rgba(0,0,0,0.05);
+}
+
+.document-card {
+	width: 100%;
+	font-size: 12px;
+	font-family: "MontSerrat",sans-serif;
+	margin-bottom: 20px;
+	.document-header {
+		display: flex;
+		justify-content: space-between;
+		padding: 30px;
+	}
+	.document-footer {
+		padding: 10px 30px 30px 30px;
+	}
+	.document-content {
+		padding: 10px 30px;
+		position: relative;
+		background: #f7f7f7;
+		margin-bottom: 20px;
+	}
+
+	.document-text-field-container {
+		overflow: hidden;
+		height: 60px;
+		margin-bottom: -10px;
+	}
+
+	.title{
+		font-weight: bold;
+		color: #000000;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+	.title2 {
+		padding-left: 30px;
+		margin-bottom: 5px;
+		font-weight: bold;
+		color: #000000;
+		text-transform: uppercase;
+	}
+	.subtitle{
+		text-align: left;
+		color: #23a7da;
+	}
+	.number-doc{
+		text-align: center;
+		background:#37afde;
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		left: 0px;
+		top:13px;
+		font-size: 10px;
+		line-height: 18px;
+		color: #ffffff;
+	}
+	.description{
+		text-align: left;
+		color: #000000;
+	}
+	
+}
+
+.container-loading {
+	text-align: center;
+	width: 100%;
+	position: relative;
+}
+
+.overlay .box-loading {
+	position: absolute;
+    left: 50%;
+    margin-left: -20px;
+}
+
+.center {
+	text-align: center;
+}
+.flex-grow1 {
+	flex-grow: 1;
+}
+.empty-message-container {
+	text-align: center;
+	font-size: 12px;
+	font-family: "Montserrat",sans-serif;
+	color: #000000;
+	.empty-icon {
+		width: 40px;
+		height: 40px;
+		margin: 15px auto 30px auto;
+		background: transparent url("assets/icon_sad.svg") center center no-repeat;
+		background-size: 40px;
+	}
+}
+
+.box-history{
+	padding: 30px;
+	min-height: 95px;
+	margin-bottom: 20px;
+	.data-container-general{
+		width: 100%;
+		.time-data{
+			font-size: 12px;
+			font-family: "Montserrat",sans-serif;
+			font-weight: 700;
+			color: #000000;
+			text-transform: uppercase;
+		}
+		.data-container-inner{
+			height: 24px;
+			.container-texts{
+				width: 100%;
+				height: 24px;
+				display: flex;
+				font-size: 12px;
+				font-family: "Montserrat",sans-serif;
+				justify-content: flex-start;
+				font-weight: normal;
+				.patient-name{
+					align-self:center;
+					width: 310px;
+					color: #23a7da;
+				}
+				.procedure-text{
+					align-self:center;
+					width: 600px;
+					color: #000000;
+				}
+				.owner-card-patient-name{
+					align-self:center;
+					width: 410px;
+					color: #000000;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					display: block;
+    				overflow: hidden;
+				}
+				.owner-card-procedure-text{
+					align-self:center;
+					width: 500px;
+					color: #bbbbbb;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					display: block;
+    				overflow: hidden;
+					padding-right: 16px;
+				}
+				a, a:visited{
+					color: #23a7da;
+					@include transition(all 0.2s);
+				}
+					a:hover {
+					color: #006386;
+				}
+			}
+		}
+	}
+}
