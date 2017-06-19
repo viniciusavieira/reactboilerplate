@@ -1,7 +1,7 @@
 {
   "name": "webpack-scup-fale-mais",
   "version": "1.0.0",
-  "description": "scup-fale-mais",
+  "description": "reactBoilerPlate",
   "main": "index.js",
   "license": "UNLICENSED",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/vinicius_araujo_vieira/scup_fale_mais.git"
+    "url": "https://github.com/Chineis/reactboilerplate.git"
     },
   "author": "Vinicius Araujo Vieira",
   "dependencies": {
