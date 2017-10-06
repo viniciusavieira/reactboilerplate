@@ -11,7 +11,7 @@ class App extends React.Component {
 
 	constructor(){
 		super();
-		App.BASEPATH = "scup/";
+		App.BASEPATH = "reactboilerplate/";
 
 	}
 
@@ -39,9 +39,9 @@ class App extends React.Component {
 	{
 		if(replace)
 		{
-			browserHistory.replace("/scup/"+routeString);
+			browserHistory.replace("/reactboilerplate/"+routeString);
 		}else{
-			browserHistory.push("/scup/"+routeString);
+			browserHistory.push("/reactboilerplate/"+routeString);
 		}
 	}
 
