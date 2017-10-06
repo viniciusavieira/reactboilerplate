@@ -8,8 +8,8 @@ import Home from "javascripts/view/home/Home";
 
 function startApp(){
 	render((
-		<Router baseName="/reactboilterplate" history={browserHistory}>
-			<Route path="/reactboilterplate" component={App} onChange={App.onRouteChange}>
+		<Router baseName="/reactboilerplate" history={browserHistory}>
+			<Route path="/reactboilerplate" component={App} onChange={App.onRouteChange}>
 				<Route path="home" component={Home}/>
 				<Route path="*" component={NotFound} />
 			</Route>
