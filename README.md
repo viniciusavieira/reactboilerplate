@@ -1,6 +1,6 @@
 # README #
 
-ReactBoilerPlate para aplicações ES6 + React + SASS.
+2015 - ReactBoilerPlate para aplicações ES6 + React + SASS.
 
 Deve ter Node 6.0 ou superior instalado.
 
